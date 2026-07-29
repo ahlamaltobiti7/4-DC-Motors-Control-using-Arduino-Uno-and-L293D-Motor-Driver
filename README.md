@@ -1,6 +1,6 @@
-#  4 DC Motors Control using Arduino Uno and L293D Motor Driver
+# 4 DC Motors Control using Arduino Uno and L293D Motor Driver
 
-##  Project Overview
+## Project Overview
 
 This project demonstrates how to control **four DC motors** using an **Arduino Uno** and an **L293D Motor Driver** in **Tinkercad**.
 
@@ -19,7 +19,7 @@ This project demonstrates the basic principles of DC motor control and robot mov
 
 ---
 
-#  Objectives
+# Objectives
 
 - Learn how to interface an Arduino Uno with an L293D Motor Driver.
 - Understand the operation of an H-Bridge motor driver.
@@ -30,7 +30,7 @@ This project demonstrates the basic principles of DC motor control and robot mov
 
 ---
 
-#  Components Used
+# Components Used
 
 - Arduino Uno
 - L293D Motor Driver IC
@@ -42,14 +42,14 @@ This project demonstrates the basic principles of DC motor control and robot mov
 
 ---
 
-#  Software Used
+# Software Used
 
 - Tinkercad Circuits
 - Arduino IDE (Arduino C++)
 
 ---
 
-#  Circuit Connections
+# Circuit Connections
 
 ## Arduino → L293D
 
@@ -79,19 +79,19 @@ This project demonstrates the basic principles of DC motor control and robot mov
 
 | Motors | L293D Output Pins |
 |---------|-------------------|
-| Left Motors | Pins 3 & 6 |
-| Right Motors | Pins 11 & 14 |
+| Top Motors Group | Pins 3 & 6 |
+| Bottom Motors Group | Pins 11 & 14 |
 
-The four motors are connected as two groups:
+The four motors are connected as two functional pairs:
 
-- Left-side motors
-- Right-side motors
+- Top-side motor pair
+- Bottom-side motor pair
 
-Each group operates together to move the robot.
+Each pair operates together to control the robot's movement.
 
 ---
 
-#  How the Circuit Works
+# How the Circuit Works
 
 The Arduino sends HIGH and LOW signals to the L293D input pins.
 
@@ -103,9 +103,9 @@ The motors are powered by an external 9V battery, while the Arduino supplies onl
 
 ---
 
-#  Movement Sequence
+# Movement Sequence
 
-##  Step 1 – Move Forward
+## Step 1 – Move Forward
 
 The Arduino drives both motor groups in the forward direction.
 
@@ -113,7 +113,7 @@ The Arduino drives both motor groups in the forward direction.
 
 ---
 
-##  Step 2 – Move Backward
+## Step 2 – Move Backward
 
 The motor polarity is reversed, causing all motors to rotate backward.
 
@@ -121,23 +121,23 @@ The motor polarity is reversed, causing all motors to rotate backward.
 
 ---
 
-##  Step 3 – Turn Right
+## Step 3 – Turn Right
 
-The left-side motors rotate forward while the right-side motors rotate backward.
-
-**Duration:** 30 Seconds
-
----
-
-##  Step 4 – Turn Left
-
-The right-side motors rotate forward while the left-side motors rotate backward.
+One group of motors rotates forward while the opposite group rotates backward to execute a turn.
 
 **Duration:** 30 Seconds
 
 ---
 
-##  Step 5 – Stop
+## Step 4 – Turn Left
+
+The motor rotation directions are swapped between groups to reverse the turn direction.
+
+**Duration:** 30 Seconds
+
+---
+
+## Step 5 – Stop
 
 All motors stop before repeating the movement sequence.
 
@@ -145,7 +145,7 @@ All motors stop before repeating the movement sequence.
 
 ---
 
-#  Arduino Program
+# Arduino Program
 
 The Arduino program is divided into several functions:
 
@@ -161,7 +161,7 @@ Each function changes the logic applied to the L293D input pins to generate the 
 
 ---
 
-#  Understanding the RPM Indicator in Tinkercad
+# Understanding the RPM Indicator in Tinkercad
 
 During the simulation, Tinkercad displays the rotational speed of each DC motor as **RPM (Revolutions Per Minute)**.
 
@@ -174,7 +174,7 @@ Monitoring the RPM values during the simulation confirms that the motors perform
 
 ---
 
-#  Circuit Diagram
+# Circuit Diagram
 
 ![Circuit](Circuit.png)
 
@@ -182,7 +182,7 @@ Monitoring the RPM values during the simulation confirms that the motors perform
 
 ---
 
-#  Forward Movement
+# Forward Movement
 
 ![Forward](Forward.png)
 
@@ -191,12 +191,12 @@ Monitoring the RPM values during the simulation confirms that the motors perform
 During this stage:
 
 - All four motors rotate in the same forward direction.
-- The RPM values have the same direction.
+- The RPM values have the same positive direction (**14886 RPM**).
 - The synchronized motor rotation moves the robot forward for **30 seconds**.
 
 ---
 
-#  Backward Movement
+# Backward Movement
 
 ![Backward](Backward.png)
 
@@ -205,28 +205,42 @@ During this stage:
 During this stage:
 
 - All four motors rotate together in the reverse direction.
-- The RPM values become negative, indicating reverse rotation.
+- The RPM values become negative (**-14886 RPM**), indicating reverse rotation.
 - The robot moves backward for **60 seconds**.
 
 ---
 
-#  Turning Movement
+# Turning Movement
 
-![Turning](Turning.png)
+## Turn Right
 
-**Figure 4:** Turning movement.
+![Turn Right](TurnRight.png)
 
-During turning:
+**Figure 4:** Right turn movement.
 
-- The motors on one side rotate forward and display **positive RPM**.
-- The motors on the opposite side rotate backward and display **negative RPM**.
-- Rotating both sides in opposite directions allows the robot to turn right or left successfully.
+During turning right:
 
-This confirms that the L293D motor driver correctly controls the direction of the motors during turning.
+- The bottom motors group rotates forward displaying **positive RPM (14886 RPM)**.
+- The top motors group rotates backward displaying **negative RPM (-14886 RPM)**.
+- Rotating both groups in opposite directions enables the robot to execute the right turn successfully.
 
 ---
 
-#  Simulation Video
+## Turn Left
+
+![Turn Left](TurnLeft.png)
+
+**Figure 5:** Left turn movement.
+
+During turning left:
+
+- The top motors group rotates forward displaying **positive RPM (14886 RPM)**.
+- The bottom motors group rotates backward displaying **negative RPM (-14886 RPM)**.
+- This confirms that the L293D motor driver correctly controls the polarity and direction of the motors during turning.
+
+---
+
+# Simulation Video
 
 The demonstration video shows the complete operation of the project, including:
 
@@ -237,29 +251,28 @@ The demonstration video shows the complete operation of the project, including:
 - Left turn
 - Complete movement sequence
 
- **Simulation Video**
+**Simulation Video**
 
 *(Insert the simulation video here.)*
 
 ---
 
-#  Project Structure
+# Project Structure
 
-```
 4-DC-Motors-Control
 │
-├── Arduino_Code.ino
+├── 4-DC Motor Control Project.ino
+├── 4-DC Motor Control Project.brd
 ├── README.md
 ├── Circuit.png
 ├── Forward.png
 ├── Backward.png
-├── Turning.png
-└── Simulation.mp4
-```
+├── TurnRight.png
+└── TurnLeft.png
 
 ---
 
-#  What I Learned
+# What I Learned
 
 Through this project, I learned how to:
 
@@ -275,7 +288,7 @@ Through this project, I learned how to:
 
 ---
 
-#  Skills Gained
+# Skills Gained
 
 - Arduino Programming
 - DC Motor Control
@@ -289,7 +302,7 @@ Through this project, I learned how to:
 
 ---
 
-#  Conclusion
+# Conclusion
 
 This project successfully demonstrates the control of four DC motors using an Arduino Uno and an L293D motor driver.
 

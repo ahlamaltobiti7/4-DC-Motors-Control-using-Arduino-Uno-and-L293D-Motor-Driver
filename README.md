@@ -257,18 +257,16 @@ The demonstration video shows the complete operation of the project, including:
 
 # Project Structure
 
-
-4-DC-Motors-Control
-│
-├── 4-DC Motor Control Project.ino
-├── 4-DC Motor Control Project.brd
-├── README.md
-├── Circuit.png
-├── Forward.png
-├── Backward.png
-├── TurnRight.png
-├── TurnLeft.png
-└── 4-DC Motor Control Project.mp4
+- **4-DC-Motors-Control**
+  - `4-DC Motor Control Project.ino` — Arduino Source Code
+  - `4-DC Motor Control Project.brd` — Board Layout File
+  - `README.md` — Project Documentation
+  - `Circuit.png` — Circuit Diagram
+  - `Forward.png` — Forward Movement Simulation
+  - `Backward.png` — Backward Movement Simulation
+  - `TurnRight.png` — Right Turn Simulation
+  - `TurnLeft.png` — Left Turn Simulation
+  - `4-DC Motor Control Project.mp4` — Demonstration Video
 
 ---
 

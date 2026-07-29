@@ -259,18 +259,21 @@ The demonstration video shows the complete operation of the project, including:
 
 # Project Structure
 
+```text
 4-DC-Motors-Control
 │
-├── 4-DC Motor Control Project.ino
-├── 4-DC Motor Control Project.brd
-├── README.md
-├── Circuit.png
-├── Forward.png
-├── Backward.png
-├── TurnRight.png
+├── 4-DC Motor Control Project.ino      
+├── 4-DC Motor Control Project.brd      
+├── README.md                           
+├── Circuit.png                         
+├── Forward.png                         
+├── Backward.png                        
+├── TurnRight.png                       
 └── TurnLeft.png
+└──4-DC Motor Control Project.mp4
 
 ---
+
 
 # What I Learned
 
